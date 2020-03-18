@@ -51,6 +51,7 @@ fi
 service-plugin.zip -O resources/plugins/geoserver-sldservice-plugin.zip
 wget -c https://build.geoserver.org/geoserver/${GS_VERSION_EXT}.x/community-latest/geoserver-${GS_VERSION_EXT}-SNAPSHOT-activeMQ-broker-plugin.zip   -O resources/plugins/geoserver-SNAPSHOT-activeMQ-broker-plugin.zip 
 wget -c https://build.geoserver.org/geoserver/${GS_VERSION_EXT}.x/community-latest/geoserver-${GS_VERSION_EXT}-SNAPSHOT-jms-cluster-plugin.zip -O resources/plugins/geoserver-SNAPSHOT-jms-cluster-plugin.zip
+wget -c https://github.com/bourgesl/marlin-renderer/releases/download/v0_9_4_1_jdk9/marlin-0.9.4.1-Unsafe-OpenJDK9.jar  -O  resources/plugins/marlin-Unsafe-OpenJDK9.jar
 
 #fi
 
