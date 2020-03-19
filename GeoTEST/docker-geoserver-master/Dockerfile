@@ -7,13 +7,7 @@ FROM tomcat:$IMAGE_VERSION
 LABEL maintainer="Tim Sutton<tim@linfiniti.com>"
 
 
-ARG GS_VERSION=2.16.2
-ARG GWC_VERSION=1.15.4
-
-
 ## Would you like to keep default Tomcat webapps
-ARG TOMCAT_EXTRAS=true
-
 ARG WAR_URL=http://downloads.sourceforge.net/project/geoserver/GeoServer/${GS_VERSION}/geoserver-${GS_VERSION}-war.zip
 ARG GWC_WAR_URL=https://downloads.sourceforge.net/project/geowebcache/geowebcache/${GWC_VERSION}/geowebcache-${GWC_VERSION}-war.zip
 
@@ -35,6 +29,10 @@ RUN set -e \
 
 ENV \
     JAVA_HOME=/usr/lib/jvm/default-java \
+    STABLE_EXTENSIONS='' \
+    TOMCAT_EXTRAS='true' \
+    GS_VERSION='2.15.5' \
+    GWC_VERSION='1.15.4' \
     STABLE_EXTENSIONS='' \
     COMMUNITY_EXTENSIONS='' \
     DEBIAN_FRONTEND=noninteractive \
