@@ -142,24 +142,6 @@ if [[ ! -f /tmp/resources/geoserver-${GS_VERSION}.zip ]]; then \
     && rm -rf /tmp/geoserver
 
 
-# A little logic that will fetch the geowebcache war zip file if it
-# is not available locally in the resources dir
-if [[ ! -f /tmp/resources/geowebcache-${GWC_VERSION}.zip ]]; then \
-    if [[ "${GWC_WAR_URL}" == *\.zip ]]
-    then
-        destination=/tmp/resources/geowebcache-${GWC_VERSION}.zip
-        wget --progress=bar:force:noscroll -c --no-check-certificate ${GWC_WAR_URL} -O ${destination};
-        unzip /tmp/resources/geowebcache-${GWC_VERSION}.zip -d /tmp/geowebcache
-    else
-        destination=/tmp/geowebcache/geowebcache.war
-        mkdir -p /tmp/geowebcache/ && \
-        wget --progress=bar:force:noscroll -c --no-check-certificate ${GWC_WAR_URL} -O ${destination};
-    fi;\
-    fi; \
-unzip /tmp/geowebcache/geowebcache.war -d ${CATALINA_HOME}/webapps/geowebcache 
-
-
-
 # Install any plugin zip files in resources/plugins
 if ls /tmp/resources/plugins/*.zip > /dev/null 2>&1; then \
       for p in /tmp/resources/plugins/*.zip; do \
